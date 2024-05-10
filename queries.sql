@@ -49,13 +49,12 @@ JOIN
 GROUP BY 
     c.customerId, c.customerName, r.chargeType
 ORDER BY 
-    total_purchases DESC;
+    total_purchases DESC
+    LIMIT 10; 
     
 -- Q4) Which meeting room location is doing best? 
 SELECT 
-    mr.buildingName,
-    COUNT(mrr.meetingRoomReservationId) AS TotalBookings,
-    SUM(r.totalCharge) AS TotalRevenue
+    mr.buildingName
 FROM 
     meeting_room AS mr
 JOIN 
@@ -65,8 +64,8 @@ JOIN
 GROUP BY 
 	mr.buildingName
 ORDER BY 
-    TotalBookings DESC, 
-    TotalRevenue DESC
+    COUNT(mrr.meetingRoomReservationId) DESC,
+    SUM(r.totalCharge) DESC
     LIMIT 1; 
 
 -- Q5) What service type is the most popular? 
@@ -83,9 +82,7 @@ LIMIT 1;
 
 -- Q6) Which type of sleeping room is doing best? 
 SELECT 
-    sr.bedCount,
-    COUNT(srr.sleepingRoomReservationId) AS TotalBookings,
-    SUM(r.totalCharge) AS TotalRevenue
+    sr.bedCount
 FROM 
     sleeping_room AS sr
 JOIN 
@@ -95,7 +92,7 @@ JOIN
 GROUP BY 
     sr.bedCount
 ORDER BY 
-    TotalBookings DESC, 
-    TotalRevenue DESC
+	COUNT(srr.sleepingRoomReservationId) DESC,
+    SUM(r.totalCharge)  DESC
     LIMIT 1; 
 
