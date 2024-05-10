@@ -1,3 +1,4 @@
+
 #this code is used to load our data from the excel sheet into our SQL database
 import mysql.connector
 import openpyxl
