@@ -34,7 +34,7 @@ def get_data():
         title="The top 10 customers and their total charges are:"
         sql_query = "SELECT c.customerId, c.customerName, SUM(r.totalCharge) AS total_purchases FROM receipt AS r JOIN customer AS c ON r.customerId = c.customerId GROUP BY c.customerId, c.customerName ORDER BY total_purchases DESC LIMIT 10;"
     elif selected_option == '3':
-        title="x"
+        title="The customer ID, name, type of charge, and total charges for the best customers are: "
         sql_query = "SELECT c.customerId, c.customerName, r.chargeType, SUM(r.totalCharge) AS total_purchases FROM receipt r LEFT JOIN meeting_room_guest_list mg ON mg.meetingRoomReservationId = r.meetingRoomReservationId LEFT JOIN sleeping_room_guest sg ON sg.sleepingRoomReservationId = r.sleepingRoomReservationId JOIN customer c ON c.customerId = COALESCE(mg.customerId, sg.customerId) GROUP BY c.customerId, c.customerName, r.chargeType ORDER BY total_purchases DESC;"
     elif selected_option == '4':
         title="The meeting room location doing best, and the number of times it's been reserved is: "
