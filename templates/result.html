@@ -1,1 +1,13 @@
+<p>results page</p>
+{% extends "index.html" %}
+
+{% block content %}
+<h2>Query Result:</h2>
+<ul>
+    {% for row in result %}
+    <li>{{ row }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
 
