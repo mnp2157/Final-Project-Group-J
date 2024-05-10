@@ -1,2 +1,14 @@
+{% block content %}
+<center><h1>What would you like to know more about? </h1></center>
 
-<p>index page</p>
+<center>
+    <form method="post" action="/get_data">
+        <select id="mySelect" name="selected_option">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</center>
+{% endblock %}
