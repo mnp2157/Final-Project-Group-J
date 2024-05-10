@@ -10,7 +10,7 @@ mydb = mysql.connector.connect(
     host="localhost",
     user="root",
     password="rainarathod", #CHANGE BASED ON HOST
-    database=""
+    database="last_resort"
 )
 # Create cursor
 cursor = mydb.cursor()
@@ -43,7 +43,7 @@ def get_data():
     cursor.execute(sql_query)
     result = cursor.fetchall()
     #Pass the result to the result.html template
-    return render_template('result.html' result=result)
+    return render_template('result.html', result=result)
 
 if __name__ == "__main__":
     app.run(debug = True)
